@@ -16,7 +16,7 @@ SESSION_CONFIGS = [
         'name': 'demo_publicgoods',
         'display_name': "Public Goods",
         'num_demo_participants': 3,
-        'app_sequence': ['public_goods', 'payment_info'],
+        'app_sequence': ['public_goods'],
     },
 ]
 
