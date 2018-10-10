@@ -20,13 +20,6 @@ SESSION_CONFIGS = [
     },
 ]
 
-ROOMS = [
-    {
-        'name': 'demo_oTree',
-        'display_name': 'Demo',
-    },
-]
-
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
 LANGUAGE_CODE = 'en'
@@ -35,8 +28,12 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'CHF'
 USE_POINTS = True
 
-ROOMS = []
-
+ROOMS = [
+    {
+        'name': 'demo_oTree',
+        'display_name': 'Demo',
+    },
+]
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
@@ -54,7 +51,6 @@ AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
-
 
 # Consider '', None, and '0' to be empty/false
 DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
