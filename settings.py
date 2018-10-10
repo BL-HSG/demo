@@ -20,6 +20,12 @@ SESSION_CONFIGS = [
     },
 ]
 
+ROOMS = [
+    {
+        'name': 'demo_oTree',
+        'display_name': 'Demo',
+    },
+]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
