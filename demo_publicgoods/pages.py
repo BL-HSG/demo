@@ -28,7 +28,7 @@ class Results(Page):
 
 class End(Page):
     def vars_for_template(self):
-        image1 = 'public_goods/smiley2.jpg'
+        image1 = 'demo_publicgoods/smiley2.jpg'
         return {'image1': image1}
 
     def is_displayed(self):
