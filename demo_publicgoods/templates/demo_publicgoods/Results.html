@@ -32,6 +32,26 @@
     {% endfor %}
 </table>
 
+{% if player.round_number > 1 %}
+<h5>In previous rounds your payoff and contribution was:</h5>
+<table class="table table-hover table-striped">
+    <thead>
+    <tr>
+        <th>Round Number</th>
+        <th>Payoff in ECUs</th>
+        <th>Contribution in ECUs</th>
+    </tr>
+    </thead>
+    {%for i in player.in_previous_rounds%}
+    <tr>
+        <td>round {{i.round_number}}</td>
+        <td>{{i.payoff}}</td>
+        <td>{{i.contribution}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
 
 
     {% next_button %}
