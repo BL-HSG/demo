@@ -14,7 +14,7 @@ class Constants(BaseConstants):
     name_in_url = 'demo01'
     players_per_group = 3
     num_rounds = 3
-    endowment = c(100)
+    endowment = 100
     multiplier = 1.8
 
 

@@ -11,7 +11,7 @@
         <p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p>
         You started with an endowment of {{ Constants.endowment }},
         of which you contributed {{ player.contribution }}.
-        Your group contributed {{ group.total_contribution }},
+        Your group contributed {{ group.total_contribution }}.
 
         Your profit is therefore {{ player.payoff }}.
     </p>
@@ -39,13 +39,13 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
             $(function() {
-            $('#chart').highcharts({
-                title: {text: 'Contributions'},
-                credits: {enabled: false},
-                series: {{series|json}}
+                $('#chart').highcharts({
+                    title: {text: 'Contributions'},
+                    credits: {enabled: false},
+                    series: {{series|json}}
         });
      });
 
