@@ -16,8 +16,14 @@ SESSION_CONFIGS = [
         'name': 'demo_publicgoods',
         'display_name': "Public Goods",
         'num_demo_participants': 3,
-        'app_sequence': ['demo_publicgoods'],
+        'app_sequence': ['demo_publicgoods', 'payment_info'],
     },
+    {
+        'name': 'prisoner',
+        'display_name': "Prisoner's Dilemma",
+        'num_demo_participants': 2,
+        'app_sequence': ['prisoner', 'payment_info'],
+     },
 ]
 
 # ISO-639 code

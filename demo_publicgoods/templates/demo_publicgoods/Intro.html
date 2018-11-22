@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Welcome to the Behavioral Lab of the University of St.Gallen
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for participating in this experiment
+        This is a public goods game with
+        {{ Constants.players_per_group }} players per group,
+        an endowment of {{ Constants.endowment }},
+        and an efficiency factor of {{ Constants.multiplier }}.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}

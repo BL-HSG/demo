@@ -8,13 +8,48 @@
 {% block content %}
 
     <p>
+        <p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p>
         You started with an endowment of {{ Constants.endowment }},
         of which you contributed {{ player.contribution }}.
         Your group contributed {{ group.total_contribution }},
-        resulting in an individual share of {{ group.individual_share }}.
+
         Your profit is therefore {{ player.payoff }}.
     </p>
 
+<h5>The contribution and payoff of the other players are: </h5>
+        <table class="table table-hover table-striped">
+    <thead>
+    <tr>
+        <th>Contribution in ECUs</th>
+        <th>Payoff in ECUs</th>
+    </tr>
+    </thead>
+    {%for i in player.get_others_in_group%}
+    <tr>
+        <td>{{i.contribution}}</td>
+        <td>{{i.payoff}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
     {% next_button %}
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+            $(function() {
+            $('#chart').highcharts({
+                title: {text: 'Contributions'},
+                credits: {enabled: false},
+                series: {{series|json}}
+        });
+     });
+
+
+
+</script>
 {% endblock %}

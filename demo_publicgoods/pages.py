@@ -3,6 +3,11 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
+class Intro(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+
 class Contribute(Page):
     form_model = 'player'
     form_fields = ['contribution']
@@ -11,21 +16,25 @@ class Contribute(Page):
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
-        group = self.group
-        players = group.get_players()
-        contributions = [p.contribution for p in players]
-        group.total_contribution = sum(contributions)
-        group.individual_share = group.total_contribution * Constants.multiplier / Constants.players_per_group
-        for p in players:
-            p.payoff = Constants.endowment - p.contribution + group.individual_share
+        self.group.set_payoffs()
 
 
 class Results(Page):
-    pass
+    def vars_for_template(self):
+        data = [g.average_contribution for g in self.group.in_all_rounds()]
+        series = [{'name': 'Contribution', 'type': 'column', 'data': data}]
+        return {'series': series}
+
+
+class End(Page):
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
 
 
 page_sequence = [
+    Intro,
     Contribute,
     ResultsWaitPage,
-    Results
+    Results,
+    End,
 ]
