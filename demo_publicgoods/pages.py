@@ -21,9 +21,30 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def vars_for_template(self):
-        data = [g.average_contribution for g in self.group.in_all_rounds()]
-        series = [{'name': 'Contribution', 'type': 'column', 'data': data}]
-        return {'series': series}
+        series = []
+        # for player in self.group.get_players():
+        payoff_me = [p.payoff for p in self.player.in_all_rounds()]
+        series.append({
+            'name': 'Your Payoff',
+            'data': payoff_me
+        })
+
+        for player in self.player.get_others_in_group():
+            payoff_other = [p.payoff for p in player.in_all_rounds()]
+            series.append({
+                'name': 'Payoff other Players',
+                'data': payoff_other
+            })
+
+        avg_contribution = [g.average_contribution for g in self.group.in_all_rounds()]
+        series.append({
+            'name': 'Average Contribution',
+            'data': avg_contribution
+        })
+
+        return {
+            'highcharts_series': series
+        }
 
 
 class End(Page):

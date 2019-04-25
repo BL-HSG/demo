@@ -12,7 +12,7 @@ payoffs.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'prisoner'
+    name_in_url = 'demo02'
     players_per_group = 2
     num_rounds = 1
 

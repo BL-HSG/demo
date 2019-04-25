@@ -23,7 +23,7 @@ SESSION_CONFIGS = [
         'display_name': "Prisoner's Dilemma",
         'num_demo_participants': 2,
         'app_sequence': ['prisoner', 'payment_info'],
-     },
+    },
 ]
 
 # ISO-639 code
@@ -38,6 +38,7 @@ ROOMS = [
     {
         'name': 'demo_oTree',
         'display_name': 'Demo',
+        'participant_label_file': '_rooms/demo_oTree.txt'
     },
 ]
 

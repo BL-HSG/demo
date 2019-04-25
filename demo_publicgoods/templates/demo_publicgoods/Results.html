@@ -2,22 +2,22 @@
 {% load otree %}
 
 {% block title %}
-    Results
+Results
 {% endblock %}
 
 {% block content %}
 
-    <p>
-        <p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p>
-        You started with an endowment of {{ Constants.endowment }},
-        of which you contributed {{ player.contribution }}.
-        Your group contributed {{ group.total_contribution }}.
+<p>
+<p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p>
+    You started with an endowment of {{ Constants.endowment }},
+    of which you contributed {{ player.contribution }}.
+    Your group contributed {{ group.total_contribution }}.
 
-        Your profit is therefore {{ player.payoff }}.
-    </p>
+    Your profit is therefore {{ player.payoff }}.
+</p>
 
 <h5>The contribution and payoff of the other players are: </h5>
-        <table class="table table-hover table-striped">
+<table class="table table-hover table-striped">
     <thead>
     <tr>
         <th>Contribution in ECUs</th>
@@ -54,22 +54,60 @@
 {% endif %}
 
 
-    {% next_button %}
 
-{% endblock %}
 
-{% block scripts %}
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<div id="container"></div>
 <script>
-            $(function() {
-                $('#chart').highcharts({
-                    title: {text: 'Contributions'},
-                    credits: {enabled: false},
-                    series: {{series|json}}
-        });
-     });
+Highcharts.chart('container', {
 
+    title: {
+        text: 'Solar Employment Growth by Sector, 2010-2016'
+    },
 
+    subtitle: {
+        text: 'Source: thesolarfoundation.com'
+    },
 
+    yAxis: {
+        title: {
+            text: 'Number of Employees'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 2010
+        }
+    },
+
+    series: {{ highcharts_series|json }},
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
 </script>
+
+{% next_button %}
 {% endblock %}
