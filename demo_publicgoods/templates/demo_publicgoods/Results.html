@@ -7,16 +7,15 @@ Results
 
 {% block content %}
 
-<p>
-<p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p>
-    You started with an endowment of {{ Constants.endowment }},
+<p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.</p>
+<p>You started with an endowment of {{ Constants.endowment }},
     of which you contributed {{ player.contribution }}.
-    Your group contributed {{ group.total_contribution }}.
-
+    In total, your group contributed {{ group.total_contribution }}.
     Your profit is therefore {{ player.payoff }}.
 </p>
-
-<h5>The contribution and payoff of the other players are: </h5>
+<p>
+The contribution and payoff of the other player in this round is:
+<p/>
 <table class="table table-hover table-striped">
     <thead>
     <tr>
@@ -33,7 +32,7 @@ Results
 </table>
 
 {% if player.round_number > 1 %}
-<h5>In previous rounds your payoff and contribution was:</h5>
+<p>In previous rounds your payoff and contribution was:<p/>
 <table class="table table-hover table-striped">
     <thead>
     <tr>
@@ -55,23 +54,23 @@ Results
 
 
 
-
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <div id="container"></div>
 <script>
 Highcharts.chart('container', {
 
     title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
-    },
-
-    subtitle: {
-        text: 'Source: thesolarfoundation.com'
+        text: 'Payoff'
     },
 
     yAxis: {
         title: {
-            text: 'Number of Employees'
+            text: 'ECUs'
+        }
+    },
+    xAxis: {
+        title: {
+            text: 'Round'
         }
     },
     legend: {
@@ -85,7 +84,7 @@ Highcharts.chart('container', {
             label: {
                 connectorAllowed: false
             },
-            pointStart: 2010
+            pointStart: 1
         }
     },
 

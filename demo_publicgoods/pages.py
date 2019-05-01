@@ -22,7 +22,6 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     def vars_for_template(self):
         series = []
-        # for player in self.group.get_players():
         payoff_me = [p.payoff for p in self.player.in_all_rounds()]
         series.append({
             'name': 'Your Payoff',
@@ -32,7 +31,7 @@ class Results(Page):
         for player in self.player.get_others_in_group():
             payoff_other = [p.payoff for p in player.in_all_rounds()]
             series.append({
-                'name': 'Payoff other Players',
+                'name': 'Payoff other Player',
                 'data': payoff_other
             })
 

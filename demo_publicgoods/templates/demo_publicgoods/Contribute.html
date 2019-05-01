@@ -7,10 +7,10 @@
 
 {% block content %}
 
-    You are in round {{player.round_number}} of {{Constants.num_rounds}}.
+    <p>You are in round {{player.round_number}} of {{Constants.num_rounds}}.<p/>
 
 
-    {% formfield player.contribution label="How much will you contribute?" %}
+    {% formfield player.contribution label="How much will you contribute to the project (from 0 to 100 )?" %}
 
     {% next_button %}
 

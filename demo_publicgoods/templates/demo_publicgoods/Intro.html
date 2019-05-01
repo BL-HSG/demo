@@ -7,13 +7,29 @@
 
 {% block content %}
 
-    <p>
-        Thank you for participating in this experiment.
-        This is a public goods game with
-        {{ Constants.players_per_group }} players per group,
-        an endowment of {{ Constants.endowment }},
-        and an efficiency factor of {{ Constants.multiplier }}.
+    <p>Thank you for participating in this experiment! <p/>
+
+        <p>
+        In this experiment, you will be in a randomly formed group
+        of {{ Constants.players_per_group }} participants. Each participant in
+        the group is given {{ Constants.endowment }}. The group
+        has the opportunity to undertake a joint project. Each participant in
+        the group decides how much she or he is going to contribute to
+        the project. Contribution could be any integer from 0
+        to {{ Constants.endowment }}.
     </p>
+    <p>
+        The earnings from the project are calculated as follows: The
+        contributions of all {{ Constants.players_per_group }} participants are
+        added up, the total contribution
+        is multiplied by a factor of {{ Constants.multiplier }}, and the
+        resulting amount is the total earnings from the project, which is
+        evenly split among all {{ Constants.players_per_group }}
+        participants. Your payoff equals your earnings from the project, plus
+        the amount you did not contribute.
+    </p>
+
+<p>You will play for {{Constants.num_rounds}} rounds. In each round you will start with an endowment of {{Constants.endowment}}</p>
 
 
     {% next_button %}
