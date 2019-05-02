@@ -35,10 +35,10 @@ class Results(Page):
                 'data': payoff_other
             })
 
-        avg_contribution = [g.average_contribution for g in self.group.in_all_rounds()]
+        total_contribution = [g.total_contribution for g in self.group.in_all_rounds()]
         series.append({
-            'name': 'Average Contribution',
-            'data': avg_contribution
+            'name': 'Total Contribution',
+            'data': total_contribution
         })
 
         return {
