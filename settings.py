@@ -38,7 +38,6 @@ ROOMS = [
     {
         'name': 'demo_oTree',
         'display_name': 'Demo',
-        'participant_label_file': '_rooms/demo_oTree.txt'
     },
 ]
 
